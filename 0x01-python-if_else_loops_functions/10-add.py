@@ -1,3 +1,4 @@
 #!/usr/bin/python3
 def add(a, b):
-    return('{:d}'.format(a+b))
+    """Return the addition of a and b"""
+    return (a + b)
