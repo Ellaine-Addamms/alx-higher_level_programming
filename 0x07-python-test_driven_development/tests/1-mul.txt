@@ -1,0 +1,334 @@
+``Multiplication`` module
+=========================
+
+Using mul
+---------
+
+Importing ``mul`` from ``1-mul``
+      >>> mul = __import__('1-mul').mul
+
+Using mul:
+
+Multiplying numbers:
+
+      neg and zero
+      ____________
+      >>> mul(-1.01, 0)
+      -0.0
+
+      Multiplying two positive digits
+      ______________________
+      >>> mul(2, 5)
+      10
+
+      Multiplying two negative numbers
+      ________________________________
+      >>> mul(-2, -5)
+      10
+
+      Multiplying one neg and one pos
+      _______________________________
+      >>> mul(-2, 5)
+      -10
+
+      Multiplying one pos and one neg
+      _______________________________
+      >>> mul(2, -5)
+      -10
+
+      Multiplying a float and a neg number
+      ____________________________________
+      >>> mul(2.000, -2)
+      -4.0
+
+      Multiplying a float and a number
+      ________________________________
+      >>> mul(2.000, 2)
+      4.0
+
+      Multiplying a pos num and a float
+      _________________________________
+      >>> mul(2, 2.000)
+      4.0
+
+      Multiplying a neg num and a float
+      _________________________________
+      >>> mul(-2, 2.000)
+      -4.0
+
+      Multiplying a num and a neg float
+      _________________________________
+      >>> mul(2, -2.000)
+      -4.0
+
+      Multiplying a neg float and a num
+      _________________________________
+      >>> mul(-2.000, 2)
+      -4.0
+
+      Multiplying a neg num and neg float
+      ___________________________________
+      >>> mul(-2.000, -2)
+      4.0
+
+      Multiplying two large numbers
+      _____________________________
+      >>> mul(1e10000, 1e10000)
+      inf
+
+      Multiplying infinity
+      ____________________
+      >>> mul(float("inf"), float("inf"))
+      inf
+
+      Multiplying pos and neg infinity
+      ________________________
+      >>> mul(float("inf"), -float("inf"))
+      -inf
+
+      Multiplying neg and pos infinity
+      ________________________________
+      >>> mul(-float("inf"), float("inf"))
+      -inf
+
+      Multiplying neg and neg infinity
+      ________________________________
+      >>> mul(-float("inf"), -float("inf"))
+      inf
+
+      Multiplying a small int and small int
+      _____________________________________
+      >>> mul(1E+100, -3E+102)
+      -2.9999999999999997e+202
+
+Multiplying a string and float
+
+       string and float
+       ________________
+       >>> mul("string", 2.000)
+       Traceback (most recent call last):
+       TypeError: can't multiply sequence by non-int of type 'float'
+
+
+
+Multiplying String and a number
+
+      string and number
+      ________________
+      >>> mul(2, "hello")
+      'hellohello'
+
+      string and string
+      _________________
+      >>> mul("hello", "hello")
+      Traceback (most recent call last):
+      		...
+      TypeError: can't multiply sequence by non-int of type 'str'
+
+Multiplying None and number
+
+      Multiplying two None types
+      __________________________
+      >>> mul(None, None)
+      Traceback (most recent call last):
+      TypeError: unsupported operand type(s) for *: 'NoneType' and 'NoneType'
+
+      Multiplying a number and a None type
+      ____________________________________
+      >>> mul(30, None)
+      Traceback (most recent call last):
+      TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+
+      Multiplying a None type and a number
+      ____________________________________
+      >>> mul(None, 20)
+      Traceback (most recent call last):
+      TypeError: unsupported operand type(s) for *: 'NoneType' and 'int'
+
+      Float and None
+      ______________
+      >>> mul(2.000, None)
+      Traceback (most recent call last):
+      TypeError: unsupported operand type(s) for *: 'float' and 'NoneType'
+
+Multiplying Boolean and number
+
+      bool and a number
+      _________________
+      >>> mul(True, 2)
+      2
+
+      bool and a number
+      ________________
+      >>> mul(False, 2)
+      0
+
+      number and bool
+      _______________
+      >>> mul(2, False)
+      0
+
+      number and bool
+      _______________
+      >>> mul(2, True)
+      2
+
+      bool and bool
+      _____________
+      >>> mul(True, True)
+      1
+
+      bool and bool
+      _____________
+      >>> mul(True, False)
+      0
+
+      bool and bool
+      _____________
+      >>> mul(False, True)
+      0
+
+      bool and bool
+      _____________
+      >>> mul(False, False)
+      0
+
+Multiplying list and number
+
+      Multiplying a number and a list
+      _______________________________
+      >>> my_list = ["list", 2, 5, 7, 4]
+      >>> mul(2, my_list)
+      ['list', 2, 5, 7, 4, 'list', 2, 5, 7, 4]
+
+      Multiplying a list and a number
+      _______________________________
+      >>> my_list = [2, 5, 7, 4]
+      >>> mul(my_list, 2)
+      [2, 5, 7, 4, 2, 5, 7, 4]
+
+      list and list
+      _____________
+      >>> mul([2, 5, 7, 4], [2, 5, 7, 4])
+      Traceback (most recent call last):
+      TypeError: can't multiply sequence by non-int of type 'list'
+
+      list and None
+      _____________
+      >>> mul([2, 3], None)
+      Traceback (most recent call last):
+      TypeError: can't multiply sequence by non-int of type 'NoneType'
+
+Multiplying docstring and number
+
+     Docstring and number
+     ____________________
+     >>> mul("""hello""", 2)
+     'hellohello'
+
+     Number and docstring
+     ____________________
+     >>> mul(2, """hello""")
+     'hellohello'
+
+Multiplying sum and number
+
+     Sum and number
+     ______________
+     >>> mul((1 + 2), 2)
+     6
+
+     Number and sum
+     ______________
+     >>> mul(2, (1 + 2))
+     6
+
+Multiplying a number and a variable
+
+     Variable and number
+     ___________________
+     >>> mul(hello, 2)
+     Traceback (most recent call last):
+     	       ...
+     NameError: name 'hello' is not defined
+
+Multiplying invalid syntax
+
+     Invalid
+     _______
+     >>> mul( , 2)
+     Traceback (most recent call last):
+     SyntaxError: invalid syntax
+
+Multiplying tuple and number
+
+      tuple and number
+      ________________
+      >>> mul(('tup', 2), 2)
+      ('tup', 2, 'tup', 2)
+
+      number and tuple
+      ________________
+      >>> mul(2, ('tup', 2))
+      ('tup', 2, 'tup', 2)
+
+      tuple and tuple
+      _______________
+      >>> mul(('tup', 2), ('tup', 2))
+      Traceback (most recent call last):
+      TypeError: can't multiply sequence by non-int of type 'tuple'
+
+      Tuple and none
+      ______________
+      >>> mul((2, 3), None)
+      Traceback (most recent call last):
+      TypeError: can't multiply sequence by non-int of type 'NoneType'
+
+
+Multiplying set and number
+
+      Multiplying a number and a set
+      ______________________________
+      >>> mul(4, {"hello", "World", 'how', "Are",'You', "?"})
+      Traceback (most recent call last):
+      TypeError: unsupported operand type(s) for *: 'int' and 'set'
+
+      Multiplying a set and a number
+      ______________________________
+      >>> my_dict = {'hello', "World", 'how', "Are",'You', "?"}
+      >>> mul(my_dict, 4)
+      Traceback (most recent call last):
+      TypeError: unsupported operand type(s) for *: 'set' and 'int'
+
+      Set and a number
+      ________________
+      >>> mul({1, 2, 3}, 3)
+      Traceback (most recent call last):
+      		...
+      TypeError: unsupported operand type(s) for *: 'set' and 'int'
+
+Multiplying dict and number
+
+      dict and number
+      _______________
+      >>> mul({"a":1, "b":[1, 2, 3]}, 2)
+      Traceback (most recent call last):
+      TypeError: unsupported operand type(s) for *: 'dict' and 'int'
+
+Multiplying Function and number
+
+      Function and number
+      ___________________
+      >>> mul(3, lambda x: x)
+      Traceback (most recent call last):
+      TypeError: unsupported operand type(s) for *: 'int' and 'function'
+
+Incomplete argument
+
+      >>> mul(1)
+      Traceback (most recent call last):
+      TypeError: mul() missing 1 required positional argument: 'b'
+
+      >>> mul(1, 2, 3)
+      Traceback (most recent call last):
+      TypeError: mul() takes 2 positional arguments but 3 were given
